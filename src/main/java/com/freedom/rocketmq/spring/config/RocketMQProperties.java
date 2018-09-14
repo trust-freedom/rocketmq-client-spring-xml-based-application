@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 //@ConfigurationProperties( prefix = "spring.rocketmq")
+//@ConfigurationProperties是springboot的注解，且即使引入springboot包也无法使用，暂时用@Value替代
 public class RocketMQProperties {
 
     /**

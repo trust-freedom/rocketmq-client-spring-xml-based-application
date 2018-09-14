@@ -162,6 +162,7 @@ public class RocketMQAutoConfiguration {
             beanBuilder.addPropertyValue("consumeMode", annotation.consumeMode()); //CONCURRENTLY 或 ORDERLY
             beanBuilder.addPropertyValue("consumeThreadMin", annotation.consumeThreadMin()); //默认20
             beanBuilder.addPropertyValue("consumeThreadMax", annotation.consumeThreadMax()); //默认64
+            beanBuilder.addPropertyValue("consumeMessageBatchMaxSize", annotation.consumeMessageBatchMaxSize()); //最大批量消费大小，默认1
             beanBuilder.addPropertyValue("messageModel", annotation.messageModel());  //CLUSTERING 或 BROADCASTING
             beanBuilder.addPropertyValue("selectorType", annotation.selectorType());  //过滤类型，只有TAG
             beanBuilder.addPropertyValue("selectorExpress", environment.resolvePlaceholders(annotation.selectorExpress())); //过滤表达式

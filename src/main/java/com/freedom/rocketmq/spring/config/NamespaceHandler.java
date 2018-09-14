@@ -8,6 +8,10 @@ import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
 import org.springframework.beans.factory.xml.ParserContext;
 import org.w3c.dom.Element;
 
+/**
+ * 用户处理rocketmq-client自定义命名空间
+ * 将RocketMQAutoConfiguration的beanDefinition注册到spring容器
+ */
 public class NamespaceHandler extends NamespaceHandlerSupport {
 
     @Override

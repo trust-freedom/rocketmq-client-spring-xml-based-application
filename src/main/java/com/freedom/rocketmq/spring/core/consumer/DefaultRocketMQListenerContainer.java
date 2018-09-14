@@ -71,6 +71,9 @@ public class DefaultRocketMQListenerContainer implements InitializingBean, Dispo
     /** 最大消费线程数，默认64 */
     private int consumeThreadMax = 64;
 
+    /** 最大批量消费消息数量，默认值1 */
+    private int consumeMessageBatchMaxSize = 1;
+
 
     /**
      * Message consume retry strategy
@@ -161,6 +164,12 @@ public class DefaultRocketMQListenerContainer implements InitializingBean, Dispo
     }
     public void setConsumeThreadMax(int consumeThreadMax) {
         this.consumeThreadMax = consumeThreadMax;
+    }
+    public int getConsumeMessageBatchMaxSize() {
+        return consumeMessageBatchMaxSize;
+    }
+    public void setConsumeMessageBatchMaxSize(int consumeMessageBatchMaxSize) {
+        this.consumeMessageBatchMaxSize = consumeMessageBatchMaxSize;
     }
     public int getDelayLevelWhenNextConsume() {
         return delayLevelWhenNextConsume;
@@ -255,6 +264,8 @@ public class DefaultRocketMQListenerContainer implements InitializingBean, Dispo
         else{
             consumer.setConsumeThreadMin(consumeThreadMin);
         }
+
+        consumer.setConsumeMessageBatchMaxSize(consumeMessageBatchMaxSize);  //最大批量消息大小，默认值1
 
         consumer.setMessageModel(messageModel);  //默认集群模式
 
